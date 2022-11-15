@@ -2,6 +2,7 @@ import networkx as nx
 import pandas as pd
 
 df_airports = pd.read_csv('data/airports.csv')
+# df_airports = df_airports.dropna(subset=['region'])
 df_flights = pd.read_csv('data/anac.csv')
 
 # Create graph
@@ -12,6 +13,7 @@ for index, row in df_airports.iterrows():
     G.add_node(row['code'],
                name=row['name'],
                country=row['country'],
+               region=row['region'], # line added by Morsinaldo Medeiros
                latitude=row['lat_geo_point'],
                longitude=row['lon_geo_point']
                )
