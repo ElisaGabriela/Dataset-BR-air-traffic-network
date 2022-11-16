@@ -10,6 +10,21 @@ Atividade da disciplina de Estrutura de dados 2
 
 O trabalho consiste em um estudo a rede de vôos do Brasil. Através da base de dados, que pode ser encontrada [aqui](https://github.com/alvarofpp/dataset-flights-brazil).
 
+## Preparação
+Antes de começarmos o desenvolvimento do projeto, foi necessário incluir a coluna region dentro do script 'transform_to_graphml.py', resultando em:
+```
+ # Add nodes
+ for index, row in df_airports.iterrows():
+    G.add_node(row['code'],
+               name=row['name'],
+               region=row['region'],
+               country=row['country'],
+               latitude=row['lat_geo_point'],
+               longitude=row['lon_geo_point']
+               )
+```
+Também foi necessário importar os arquivos 'transform_to_graphml.py', 'transform_to_anac_csv.py', 'transform_to_airports_csv.py', 'extract.py' e 'air_traffic.graphml' para a pasta raiz do projeto.
+
 ## Desenvolvimento do projeto
 
 As implementações foram realizadas em um [Notebook Jupyter](https://github.com/ElisaGabriela/Dataset-BR-air-traffic-network/blob/main/ed2-u2-flights-brasil.ipynb).<br>
